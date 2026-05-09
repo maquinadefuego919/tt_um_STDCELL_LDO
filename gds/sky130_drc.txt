@@ -5,6 +5,30 @@
  <generator>drc: script='/home/ttuser/.klayout/salt/Efabless_sky130/tech/sky130/macros/run_drc_full.lydrc'</generator>
  <top-cell>tt_um_STDCELL_LDO</top-cell>
  <tags>
+  <tag>
+   <name>waived</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>red</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>green</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>blue</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>yellow</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>important</name>
+   <description/>
+  </tag>
  </tags>
  <categories>
   <category>
