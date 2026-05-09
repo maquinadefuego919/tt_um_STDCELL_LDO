@@ -211,12 +211,6 @@ MACRO tt_um_STDCELL_LDO
         RECT 17.790 224.760 18.090 225.760 ;
     END
   END uio_oe[6]
-  PIN uio_oe[7]
-    PORT
-      LAYER met4 ;
-        RECT 15.030 224.760 15.330 225.760 ;
-    END
-  END uio_oe[7]
   PIN uio_out[0]
     PORT
       LAYER met4 ;
@@ -313,6 +307,12 @@ MACRO tt_um_STDCELL_LDO
         RECT 59.190 224.760 59.490 225.760 ;
     END
   END uo_out[7]
+  PIN uio_oe[7]
+    PORT
+      LAYER met4 ;
+        RECT 15.030 224.760 15.330 225.760 ;
+    END
+  END uio_oe[7]
   PIN VDPWR
     PORT
       LAYER met4 ;
