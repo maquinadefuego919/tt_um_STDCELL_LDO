@@ -13,7 +13,7 @@ The circuit regulates the voltage using a reference voltage.
 
 ## How to test
 
-With a voltage source
+With a voltage source.
 
 ## External hardware
 
