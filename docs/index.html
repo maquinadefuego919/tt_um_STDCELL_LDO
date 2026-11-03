@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STDCELL_LDO · Chip Design Club</title>
+<meta name="description" content="STDCELL_LDO: regulador de voltaje de baja caída construido con celdas estándar. Tapeout en SKY130.">
+<meta name="theme-color" content="#05070d">
+<link rel="canonical" href="https://romeruu-dev.github.io/chip-design-club/stdcell-ldo">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Chip Design Club · UABC">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="STDCELL_LDO · Chip Design Club">
+<meta property="og:description" content="STDCELL_LDO: regulador de voltaje de baja caída construido con celdas estándar. Tapeout en SKY130.">
+<meta property="og:url" content="https://romeruu-dev.github.io/chip-design-club/stdcell-ldo">
+<meta property="og:image" content="https://romeruu-dev.github.io/tt_um_STDCELL_LDO/assets/og/stdcell-ldo_og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "STDCELL_LDO", "description": "Regulador de voltaje de baja caída construido con celdas estándar digitales, fabricado en SKY130 con Tiny Tapeout.", "image": "https://romeruu-dev.github.io/chip-design-club/assets/instagram/stdcell-ldo_01.png", "url": "https://romeruu-dev.github.io/chip-design-club/stdcell-ldo", "inLanguage": "es-MX", "author": [{"@type": "Person", "name": "Abner José Parra Hernández"}], "publisher": {"@type": "Organization", "name": "Chip Design Club · UABC"}}</script>
+<link rel="preload" href="assets/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/css/story.css?v=20261024">
+</head>
+<body data-post="stdcell-ldo">
+<div class="top">
+  <div class="bars" aria-hidden="true"></div>
+  <div class="meta"><a href="https://romeruu-dev.github.io/chip-design-club/">← Inicio</a><span><span class="u">TTSKY26a</span> · SKY130</span></div>
+</div>
+<main class="deck">
+
+<!-- 1 · portada -->
+<section class="scene">
+  <div class="inner">
+    <div class="kicker r">Proyecto de tapeout · Analógico</div>
+    <h1 class="r" style="--i:1;font-size:clamp(34px,10vw,64px)">STDCELL_LDO</h1>
+    <p class="r" style="--i:2;font-size:20px">Un regulador de voltaje de <b class="acc">baja caída</b>, armado con celdas digitales.</p>
+    <div class="plate fit r" data-parallax="24" style="--i:3;margin-top:22px;--ph:42dvh">
+      <img src="assets/img/stdcell-ldo/layout.webp" alt="Layout completo de STDCELL_LDO" width="1200" height="1864">
+    </div>
+    <div class="row r" style="--i:4">
+      <div class="dim">Layout completo · KLayout</div>
+      <div class="dim" style="text-align:right">145.4 × 225.8 <span class="u">µm</span> · 1×2 tiles</div>
+    </div>
+    <div class="chips r" style="--i:5"><span class="chip on">SKY130 · 130 nm</span><span class="chip">Alto voltaje · 3.3 V</span><span class="chip">DRC: 0 violaciones</span></div>
+  </div>
+</section>
+
+<!-- 2 · equipo -->
+<section class="scene">
+  <div class="inner">
+    <div class="kicker r">El equipo</div>
+    <h2 class="r" style="--i:1">Quiénes lo llevaron<br>hasta el silicio</h2>
+    <div class="person r" style="--i:2"><div class="avatar">AP</div><div><div class="role">Diseñador</div><div class="name">Abner José<br>Parra Hernández</div></div></div>
+    <div class="person r" style="--i:3"><div class="avatar">JV</div><div><div class="role">Supervisor</div><div class="name">José Luis Valtierra<br>Sánchez de la Vega</div></div></div>
+    <p class="r" style="--i:4;margin-top:28px">Desarrollado en la <b>Facultad de Ingeniería Mexicali</b> de la <b>UABC</b>, en el programa de Semiconductores y Microelectrónica.</p>
+  </div>
+</section>
+
+<!-- 3 · la carga sube con el scroll -->
+<section class="seq" data-seq="load" style="--steps:3">
+  <div class="sticky"><div class="inner">
+    <div class="kicker">¿Qué es un LDO?</div>
+    <h2>La carga sube;<br>el voltaje no se mueve</h2>
+    <div class="demo" style="margin-top:18px">
+      <svg viewBox="0 0 600 120" role="img" aria-label="La entrada ondula mientras la salida permanece plana"></svg>
+      <div class="grid" aria-hidden="true"></div>
+      <div class="read"></div>
+      <div class="leyenda">Línea punteada: entrada · línea de color: salida regulada</div>
+    </div>
+    <div class="ticks" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="step-label">
+      <div class="on"><div class="t">Carga ligera</div><div class="d">El chip consume poco: bastan unos cuantos inversores encendidos.</div></div>
+      <div><div class="t">Carga media</div><div class="d">El OTA detecta la caída y enciende más inversores del arreglo.</div></div>
+      <div><div class="t">Carga alta</div><div class="d">Casi todo el arreglo conduce, y la salida sigue en su valor.</div></div>
+    </div>
+    <div class="dim" style="margin-top:12px">Animación ilustrativa del principio de operación, no datos de simulación</div>
+  </div></div>
+</section>
+
+<!-- 4 · el layout se acerca a cada bloque -->
+<section class="seq wide" data-seq="zoom" style="--steps:4" data-blocks='[{"l": 25.69, "t": 28.5, "w": 13.94, "h": 38.23, "z": 2.4}, {"l": 75.89, "t": 28.5, "w": 11.96, "h": 38.23, "z": 2.4}, {"l": 26.71, "t": 28.5, "w": 30.75, "h": 12.99, "z": 2.4}, {"l": 0.21, "t": 4.32, "w": 6.54, "h": 88.59, "z": 2.0}]'>
+  <div class="sticky"><div class="inner">
+    <div class="kicker">Anatomía del chip</div>
+    <h2>150 celdas,<br>un regulador</h2>
+    <div class="plate seq-plate fit" style="--ph:42dvh;margin-top:18px">
+      <div class="stage">
+        <img src="assets/img/stdcell-ldo/layout.webp" alt="Layout de STDCELL_LDO" width="1200" height="1864">
+        <div class="scalebar" style="width:34.40%"><span>50 µm</span><div class="bar"></div></div>
+        <div class="marker"></div>
+      </div>
+    </div>
+    <div class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="step-label">
+      <div class="on"><div class="t">El bloque completo</div><div class="d">145.4 × 225.8 µm: el ancho de unos dos cabellos humanos.</div></div>
+      <div><div class="t">Elemento de paso · izquierda</div><div class="d">64 inversores tri-estado einvp_1. Sus salidas se unieron a mano para ensanchar el metal.</div></div>
+      <div><div class="t">Elemento de paso · derecha</div><div class="d">Los otros 64. Juntos hacen el trabajo de un solo transistor de potencia.</div></div>
+      <div><div class="t">OTA basado en inversores</div><div class="d">El amplificador de error: 16 inv_8 + 6 inv_1. Mide la salida y ajusta el arreglo.</div></div>
+      <div><div class="t">Rieles de alimentación</div><div class="d">Las tres líneas verticales que llevan 3.3 V, 1.8 V y tierra.</div></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 5 · idea clave -->
+<section class="scene">
+  <div class="inner">
+    <div class="kicker r">La idea clave</div>
+    <h2 class="r" style="--i:1">128 inversores<br>hacen de transistor</h2>
+    <div class="plate fit r" data-parallax="18" style="--i:2;margin-top:18px;--ph:30dvh"><img src="assets/img/stdcell-ldo/zoom.webp" alt="Acercamiento al arreglo de inversores tri-estado" width="1400" height="934" loading="lazy"></div>
+    <div class="dim r" style="--i:3;margin-top:10px">Acercamiento 30 × 20 <span class="u">µm</span> · inversores tri-estado (<span class="u">sky130_fd_sc_hvl__einvp_1</span>)</div>
+    <p class="r" style="--i:4;font-size:15.5px">En vez de un gran transistor dibujado a mano, 128 inversores de la biblioteca de alto voltaje trabajan en paralelo. El layout se generó con <b>OpenROAD</b> y se terminó a mano.</p>
+    <div class="stats r" style="--i:5">
+      <div class="stat"><div class="v" data-count="128">0</div><div class="k">inversores en paralelo</div></div>
+      <div class="stat"><div class="v" data-count="3.3" data-dec="1" data-suffix=" V">0</div><div class="k">alto voltaje</div></div>
+      <div class="stat"><div class="v" data-count="0">0</div><div class="k">violaciones DRC</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · ficha técnica -->
+<section class="scene">
+  <div class="inner">
+    <div class="kicker r">Ficha técnica</div>
+    <h2 class="r" style="--i:1">STDCELL_LDO en datos</h2>
+    <table class="r" style="--i:2">
+      <tr><td class="k">Proceso</td><td>SkyWater SKY130 · 130 nm</td></tr>
+      <tr><td class="k">Programa</td><td>Tiny Tapeout · shuttle TTSKY26a</td></tr>
+      <tr><td class="k">Área</td><td>145.4 × 225.8 µm · 1×2 tiles (≈ 0.033 mm²)</td></tr>
+      <tr><td class="k">Celdas</td><td>150 <span class="mono">sky130_fd_sc_hvl</span> · OpenROAD + integración manual</td></tr>
+      <tr><td class="k">Pines</td><td><span class="mono">ua[0]</span> Vinm · <span class="mono">ua[1]</span> CAPOUT · <span class="mono">ua[2]</span> AGND · <span class="mono">ua[3]</span> ZOUT</td></tr>
+      <tr><td class="k">Verificación</td><td><span class="acc">0 violaciones</span> de DRC · post-layout en Xschem + ngspice · PSRR</td></tr>
+    </table>
+    <div class="ref r" style="--i:3"><span class="dim">Basado en</span> R. Della Sala <i>et al.</i>, <i>“Digital-Based OTA for Bio-Signal Processing Applications”</i>; R. Della Sala, F. Centurelli, G. Scotti, <i>“A Novel Differential to Single-Ended Converter for Ultra-Low-Voltage Inverter-Based OTAs”</i>.</div>
+    <a class="btn solid r" style="--i:4" href="https://github.com/maquinadefuego919/tt_um_STDCELL_LDO" rel="noopener">Ver repositorio</a>
+  </div>
+</section>
+
+<!-- 7 · versión para Instagram -->
+<section class="scene wide">
+  <div class="inner">
+    <div class="kicker r">También en Instagram</div>
+    <h2 class="r" style="--i:1">Las 6 diapositivas</h2>
+    <p class="r" style="--i:2;font-size:15.5px">Mismo contenido en formato carrusel. Toca una para abrirla completa.</p>
+    <div class="r" style="--i:3"><div class="strip">
+      <a href="assets/instagram/stdcell-ldo_01.png" target="_blank" rel="noopener"><img src="assets/instagram/thumbs/stdcell-ldo_01.webp" alt="Diapositiva 1" loading="lazy" width="540" height="675"></a>
+      <a href="assets/instagram/stdcell-ldo_02.png" target="_blank" rel="noopener"><img src="assets/instagram/thumbs/stdcell-ldo_02.webp" alt="Diapositiva 2" loading="lazy" width="540" height="675"></a>
+      <a href="assets/instagram/stdcell-ldo_03.png" target="_blank" rel="noopener"><img src="assets/instagram/thumbs/stdcell-ldo_03.webp" alt="Diapositiva 3" loading="lazy" width="540" height="675"></a>
+      <a href="assets/instagram/stdcell-ldo_04.png" target="_blank" rel="noopener"><img src="assets/instagram/thumbs/stdcell-ldo_04.webp" alt="Diapositiva 4" loading="lazy" width="540" height="675"></a>
+      <a href="assets/instagram/stdcell-ldo_05.png" target="_blank" rel="noopener"><img src="assets/instagram/thumbs/stdcell-ldo_05.webp" alt="Diapositiva 5" loading="lazy" width="540" height="675"></a>
+      <a href="assets/instagram/stdcell-ldo_06.png" target="_blank" rel="noopener"><img src="assets/instagram/thumbs/stdcell-ldo_06.webp" alt="Diapositiva 6" loading="lazy" width="540" height="675"></a>
+    </div></div>
+    <a class="btn r" style="--i:4" href="/bio-ssg">← Anterior: Bio-SSG</a>
+  </div>
+</section>
+
+</main>
+<div class="hint" aria-hidden="true"><span>Desliza hacia abajo</span><b>↓</b></div>
+<script src="assets/js/story.js"></script>
+</body>
+</html>
